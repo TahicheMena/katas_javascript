@@ -21,8 +21,7 @@ const {
 } = require('./8-kyu');
 
 /**
- * Función que añade la palabra ' kata' al final de la la frase
- * que se le pase como argumento
+ * Función que siempre devuelve 'Hello World'
  */
 it("getHelloWorld", () => {
   expect(getHelloWorld()).toEqual("Hello World");
@@ -124,6 +123,7 @@ it("countNegativeNumbersInArray", () => {
   expect(countNegativeNumbersInArray([2,null,'gofio',23])).toEqual(0);
   expect(countNegativeNumbersInArray([])).toEqual(0);
   expect(countNegativeNumbersInArray()).toEqual(0);
+  expect(countNegativeNumbersInArray(['-1'])).toEqual(0);
 });
 
 /**
