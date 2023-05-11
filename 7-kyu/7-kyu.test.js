@@ -1,6 +1,9 @@
 const {
   getAVG,
   replaceVocalWithPosition,
+  convertArrayStringsToArrayNumbers,
+  convertNumberToStringWords,
+  getCenturyByYear,
 } = require('./7-kyu');
 
 /**
@@ -30,4 +33,57 @@ it("replaceVocalWithPosition", () => {
   expect(replaceVocalWithPosition(null)).toEqual(null);
   expect(replaceVocalWithPosition()).toEqual(null);
   expect(replaceVocalWithPosition(4242)).toEqual(null);
+});
+
+/**
+ * Función que convierte un array de string en un array de números y lo retorna
+ * 
+ * Si el array no existe, se devuelve [0]
+ * Si algún elemento no es un string, se añade como 0 al array de números
+ */
+it("convertArrayStringsToArrayNumbers", () => {
+  expect(convertArrayStringsToArrayNumbers(["1", "2", "3"])).toEqual([1, 2, 3]);
+  expect(convertArrayStringsToArrayNumbers()).toEqual([0]);
+  expect(convertArrayStringsToArrayNumbers(null)).toEqual([0]);
+  expect(convertArrayStringsToArrayNumbers([null, "2", "-3", "gofio"])).toEqual([0, 2, -3, 0]);
+});
+
+/**
+ * Función que devuelve el siglo según un año dado
+ * 
+ * Si el argumento no es un número, se devuelve null
+ */
+it('getCenturyByYear', () => {
+  expect(getCenturyByYear(1705)).toBe(18);
+  expect(getCenturyByYear(1900)).toBe(19);
+  expect(getCenturyByYear(1601)).toBe(17);
+  expect(getCenturyByYear(2000)).toBe(20);
+  expect(getCenturyByYear(2003)).toBe(21);
+});
+
+
+/**
+ *  PRUEBA TECNICA:
+ * 
+ * Descripción:
+ * Dado un número entero. Devuelve una string que contiene
+ * la concatenación de las palabra, en inglés, de cada número
+ * separados por un punto.
+ * 
+ * Ejemplo
+ * Para el número 731, se obtiene 'seven.three.one'
+ * 
+ * Notas:
+ *   - Se usará: zero, one, two, three, four, five, six, seven, eight, nine
+ *   para representar: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+ *   - Si el argumento no es un número, se devuelve la cadena vacía
+ *   - Si el número es negativo, se añade el prefijo: neg
+ */
+it("convertNumberToStringWords", () => {
+  expect(convertNumberToStringWords(731)).toEqual('seven.three.one');
+  expect(convertNumberToStringWords()).toEqual('');
+  expect(convertNumberToStringWords('gofio')).toEqual('');
+  expect(convertNumberToStringWords(null)).toEqual('');
+  expect(convertNumberToStringWords(111)).toEqual('one.one.one');
+  expect(convertNumberToStringWords(-52)).toEqual('neg.five.two');
 });
