@@ -117,6 +117,7 @@ function reverse(word) {
         return null;
     }
 
+    // Versión corta
     return word.split('').reverse().join('');
 }
 
