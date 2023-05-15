@@ -65,7 +65,7 @@ function repeatWord(word, repeatNumber) {
 
 function isAllUpperCase(word) {
   if (typeof word !== 'string') return false;
-  return (word === word.toUpperCase());
+  return word === word.toUpperCase();
 }
 
 function replaceWordInSentence(sentence, patron, word) {
@@ -84,14 +84,7 @@ function negativeNumber(number) {
 
 function largestExpression(a, b, c) {
   if (typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') return null;
-  const expressions = [
-    a + b + c,
-    a * b * c,
-    a + b * c,
-    a * b + c,
-    (a + b) * c,
-    a * (b + c),
-  ];
+  const expressions = [a + b + c, a * b * c, a + b * c, a * b + c, (a + b) * c, a * (b + c)];
   return Math.max(...expressions);
 }
 
@@ -153,10 +146,24 @@ function sumNumbersToFinalNumber(number) {
   return sum;
 }
 
-  
 module.exports = {
-  addKataToInput, basicCalculator, basicCalculatorWithValidation, converToEuro,
-  abbreviateWords, filterByWord, reverse, filterAndReverse, repeatWord, isAllUpperCase,
-  replaceWordInSentence, negativeNumber, largestExpression, countNegativeNumbersInArray,
-  isPalindrome, sumNumbersInArray, getHelloWorld, getStringByCondition, sumNumbersToFinalNumber,
+  addKataToInput,
+  basicCalculator,
+  basicCalculatorWithValidation,
+  converToEuro,
+  abbreviateWords,
+  filterByWord,
+  reverse,
+  filterAndReverse,
+  repeatWord,
+  isAllUpperCase,
+  replaceWordInSentence,
+  negativeNumber,
+  largestExpression,
+  countNegativeNumbersInArray,
+  isPalindrome,
+  sumNumbersInArray,
+  getHelloWorld,
+  getStringByCondition,
+  sumNumbersToFinalNumber,
 };

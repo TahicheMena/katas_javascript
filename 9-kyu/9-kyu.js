@@ -10,5 +10,5 @@ function getEight() {
   const word = 'frontend';
   return word.length;
 }
-  
+
 module.exports = { sum, numArgs, getEight };

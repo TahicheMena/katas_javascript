@@ -9,7 +9,7 @@ function getAVG(numbers) {
     }
   }
   if (countNumbers === 0) return 0;
-  return valueNumbers/countNumbers;
+  return valueNumbers / countNumbers;
 }
 
 function replaceVocalWithPosition(sentence) {
@@ -70,7 +70,7 @@ function getCenturyByYear(year) {
   if (typeof year !== 'number') return null;
   return Math.ceil(year / 100);
 }
-  
+
 module.exports = {
   getAVG,
   replaceVocalWithPosition,
