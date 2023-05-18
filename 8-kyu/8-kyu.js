@@ -102,6 +102,37 @@ function abbreviateWords(word1, word2) {
   return `${word1[0]}.${word2[0]}`
 } 
 
+function abbreviateWords(word1, word2) {
+
+  if (
+
+    word1 === "" ||
+
+    typeof word1 !== "string" ||
+
+    word2 === "" ||
+
+    typeof word2 !== "string"
+
+  ) {
+
+    return null;
+
+  }
+
+  return `${word1[0]}.${word2[0]}`;
+
+}
+
+// function filterByWord(phrase, word) {
+//   if (typeof phrase !== "string" || typeof word !== "string") {
+//     return null;
+//   }
+
+//   return phrase.split(word).join("");
+// }
+
+
 module.exports = {
   getHelloWorld,
   getStringByCondition,
