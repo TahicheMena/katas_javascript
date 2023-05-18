@@ -18,6 +18,7 @@ const {
   getHelloWorld,
   getStringByCondition,
   sumNumbersToFinalNumber,
+  largestExpressionAdvance,
 } = require('./8-kyu');
 
 /**
@@ -302,8 +303,8 @@ it("sumNumbersToFinalNumber", () => {
  *  PRUEBA TECNICA:
  * 
  * Descripción
- * Dado tres números enteros a, b y c, devuelve el número más grande obtenido después de insertar los siguientes operadores y paréntesis: +, , ()
- * En otras palabras, prueba todas las combinaciones posibles de a, b y c con [+()], y devuelve el máximo obtenido (lee las notas para más detalles).
+ * Dado tres números enteros a, b y c, devuelve el número más grande obtenido después de insertar los siguientes operadores y paréntesis: +,*, ()
+ * En otras palabras, prueba todas las combinaciones posibles de a, b y c con [+(*)], y devuelve el máximo obtenido (lee las notas para más detalles).
  * 
  * Ejemplo
  * Con los números 1, 2 y 3, aquí tienes algunas formas de colocar los signos y paréntesis:
@@ -329,4 +330,15 @@ it("largestExpression", () => {
   expect(largestExpression(-1, 2, 3)).toEqual(5);
   expect(largestExpression(1, -2, 3)).toEqual(2);
   expect(largestExpression(-1, -2, -3)).toEqual(9);
+});
+it("largestExpressionAdvance", () => {
+  expect(largestExpressionAdvance(1, 2, 3)).toEqual(9);
+  expect(largestExpressionAdvance(2, 3, 4)).toEqual(24);
+  expect(largestExpressionAdvance(5, 5, 5)).toEqual(125);
+  expect(largestExpressionAdvance(1, 1, 1)).toEqual(3);
+  expect(largestExpressionAdvance('gofio', 2, 3)).toEqual(null);
+  expect(largestExpressionAdvance(1, -10, 1)).toEqual(-8);
+  expect(largestExpressionAdvance(-1, 2, 3)).toEqual(5);
+  expect(largestExpressionAdvance(1, -2, 3)).toEqual(2);
+  expect(largestExpressionAdvance(-1, -2, -3)).toEqual(9);
 });
