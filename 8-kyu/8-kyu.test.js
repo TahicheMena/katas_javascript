@@ -21,8 +21,7 @@ const {
 } = require('./8-kyu');
 
 /**
- * Función que añade la palabra ' kata' al final de la la frase
- * que se le pase como argumento
+ * Función que devuelve la palabra Hello World
  */
 it("getHelloWorld", () => {
   expect(getHelloWorld()).toEqual("Hello World");
