@@ -4,6 +4,9 @@ const {
   convertArrayStringsToArrayNumbers,
   convertNumberToStringWords,
   getCenturyByYear,
+  buildArray,
+  findDuplicates,
+  removeValues,
 } = require('./7-kyu');
 
 /**
@@ -61,6 +64,47 @@ it('getCenturyByYear', () => {
   expect(getCenturyByYear(2003)).toBe(21);
 });
 
+/**
+ * Función que devuelve un array con los elementos que no estén contenidos en el segundo array dado
+ * 
+ * Si el array origen no es de tipo array, se devuelve array vacio
+ * Si el segundo array no es de tipo array, se devuelve el primer array
+ */
+it('removeValues', () => {
+  expect(removeValues([1, 1, 2, 3, 1, 2, 3, 4], [1, 3])).toEqual([2, 2, 4]);
+  expect(removeValues([1, 1, 2, 3, 1, 2, 3, 4, 4, 3, 5, 6, 7, 2, 8], [1, 3, 4, 2])).toEqual([5, 6, 7, 8]);
+  expect(removeValues([8, 2, 7, 2, 3, 4, 6, 5, 4, 4, 1, 2, 3], [2, 4, 3])).toEqual([8, 7, 6, 5, 1]);
+  expect(removeValues(null, [2, 4, 3])).toEqual([]);
+  expect(removeValues([1, 1, 2, 3, 1, 2, 3, 4], null)).toEqual([1, 1, 2, 3, 1, 2, 3, 4]);
+});
+
+/**
+ * Función que dado un número (n) y dos argumentos (value1, value2).
+ * Devuelve un array de longitud n cuyo contenido es los arg1 y arg2 repetidos
+ * alternativamente
+ * 
+ * Si el número dado, no es de tipo numérico se devuelve array vacío
+ */
+it('buildArray', () => {
+  expect(buildArray(5, true, false)).toEqual([true, false, true, false, true]);
+  expect(buildArray(10, 'blue', 'red')).toEqual(['blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red']);
+  expect(buildArray(0, 'one', 'two')).toEqual([]);
+  expect(buildArray('cuatro', 'one', 'two')).toEqual([]);
+});
+
+/**
+ * Función que devuelve un array en base a los elementos duplicados que existen el array dado
+ * 
+ * En caso de que el array de entrada no sea de tipo array, se devuelve []
+ */
+it('findDuplicates', () => {
+  expect(findDuplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, '5'])).toEqual([4, 3, 1]);
+  expect(findDuplicates([0, 1, 2, 3, 4, 5])).toEqual([]);
+  expect(findDuplicates(['a', 'b', 'c', 'c', 'b', 'a', 'a'])).toEqual(['c', 'b', 'a']);
+  expect(findDuplicates([true, false, true, false, true, true])).toEqual([true, false]);
+  expect(findDuplicates()).toEqual([]);
+  expect(findDuplicates(null)).toEqual([]);
+});
 
 /**
  *  PRUEBA TECNICA:

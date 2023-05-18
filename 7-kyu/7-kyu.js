@@ -71,10 +71,54 @@ function getCenturyByYear(year) {
   return Math.ceil(year / 100);
 }
 
+function removeValues(array, valuesToRemove) {
+  if (!Array.isArray(array)) return [];
+  if (!Array.isArray(valuesToRemove)) return array;
+  return array.filter((value) => !valuesToRemove.includes(value));
+}
+
+function buildArray(n, value1, value2) {
+  if (typeof n !== 'number') return [];
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    if (i % 2 === 0) {
+      result.push(value1);
+    } else {
+      result.push(value2);
+    }
+  }
+  return result;
+}
+
+function findDuplicates(array) {
+  if (!Array.isArray(array)) return [];
+  const seen = {};
+  const duplicates = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    const key = typeof element + element;
+
+    if (seen[key]) {
+      if (seen[key] === 1) {
+        duplicates.push(element);
+      }
+      seen[key]++;
+    } else {
+      seen[key] = 1;
+    }
+  }
+
+  return duplicates;
+}
+
 module.exports = {
   getAVG,
   replaceVocalWithPosition,
   convertArrayStringsToArrayNumbers,
   convertNumberToStringWords,
   getCenturyByYear,
+  buildArray,
+  findDuplicates,
+  removeValues,
 };
