@@ -21,7 +21,7 @@ const {
 } = require('./8-kyu');
 
 /**
- * Función que siempre devuelve 'Hello World'
+ * Función que devuelve la palabra 'Hello World'
  */
 it("getHelloWorld", () => {
   expect(getHelloWorld()).toEqual("Hello World");
