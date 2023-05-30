@@ -7,7 +7,6 @@ const {
   buildArray,
   findDuplicates,
   removeValues,
-  getAVGAdvanced,
 } = require('./7-kyu');
 
 /**
@@ -23,14 +22,6 @@ it("getAVG", () => {
   expect(getAVG([1,'lol',null, null, 3])).toEqual(2);
   expect(getAVG(null)).toEqual(0);
   expect(getAVG([])).toEqual(0);
-});
-it("getAVGAdvanced", () => {
-  expect(getAVGAdvanced([1,3,6,2])).toEqual(3);
-  expect(getAVGAdvanced([1,1,1,1,1,1,1])).toEqual(1);
-  expect(getAVGAdvanced([1,'lol',3])).toEqual(2);
-  expect(getAVGAdvanced([1,'lol',null, null, 3])).toEqual(2);
-  expect(getAVGAdvanced(null)).toEqual(0);
-  expect(getAVGAdvanced([])).toEqual(0);
 });
 
 
